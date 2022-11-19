@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+
+# when run in remote terminal, use the remote cli
+# cd Documents/Learning/WebApplication
+git add .
+git commit -m '1'
+git push
+$SHELL
