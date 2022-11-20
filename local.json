@@ -1,3 +1,11 @@
 {
-    "alert": "Warning!"
+    "alert": "d-flex align-items-center justify-content-center",
+    "lists":[
+        {
+            "note":"note1"
+        },
+        {
+            "note":"note1 2 1 2"
+        }
+    ]
 }

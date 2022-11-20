@@ -1,1 +1,63 @@
-<html>as</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TKB Online</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        .container {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="w-75">
+            <div id="dataDiv" class="d-flex align-items-center justify-content-center">
+                <!-- <h1>You Div</h1> -->
+            </div>
+            <ul id="listData" class="list-group list-group-flush w-100">
+                <!-- <li class="list-group-item"></li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    // fetch('https://userdtuan.github.io/local.json')
+    fetch('local.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+    function appendData(data) {
+        // console.log(data)
+        let dataContainer = document.getElementById("dataDiv");
+        let div = document.createElement("h1");
+        div.innerHTML = data.alert;
+        dataContainer.appendChild(div);
+
+        let listContainer = document.getElementById("listData");
+        for (let i = 0; i < data.lists.length; i++) {
+            console.log(data.lists[i].note)
+            let li = document.createElement("li");
+            li.innerHTML = data.lists[i].note;
+            li.className = "list-group-item";
+            listContainer.appendChild(li);
+        }
+    }
+</script>
+
+</html>
